@@ -1,4 +1,4 @@
-import Navbar from "../components/Translation/TranlsationNavbar";
+import TNavbar from "../components/Translation/TranlsationNavbar";
 import TranslationInput from "../components/Translation/TranslationInput";
 import TranslationOutput from "../components/Translation/TranslationOutput";
 import { useState } from "react";
@@ -12,7 +12,7 @@ const Translation = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
+            <TNavbar></TNavbar>
             <TranslationInput updateTranslatedText={updateTranslatedText}></TranslationInput>
             <TranslationOutput translatedText={translatedText}></TranslationOutput>
         </div>
