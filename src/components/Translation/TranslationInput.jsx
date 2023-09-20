@@ -7,28 +7,31 @@ const TranslationInput = ({ updateTranslatedText }) => {
 
   const onSubmit = async (data) => {
     try {
+       // Check if the input is empty or contains non-letter characters
+      if (!/^[a-zA-Z]+$/.test(data.translation)) {
+        console.error("Invalid input. Please enter only letters.");
+        return; // Don't proceed with translation
+      }
 
-        const cleanedText = data.translation.replace(/[^a-zA-Z ]/g, '');
+      const translation = translate(data.translation);
+      updateTranslatedText(translation);
 
-        const translation = translate(cleanedText);
-        updateTranslatedText(translation);
-
-        const response = await fetch(
-            "https://translations-api-production-3e9d.up.railway.app/translations",
-            {
-                method: "POST",
-                headers: {
-                    'X-API-Key': 'xqW942yHAcoehSs1JRI9pMbAqTNIGl0hFEIdLgvS6cgogVlCrWzn7bWMIULvxQ3o',
-                    "Content-Type": "application/json",
+      const response = await fetch(
+          "https://translations-api-production-3e9d.up.railway.app/translations",
+          {
+            method: "POST",
+            headers: {
+              'X-API-Key': 'xqW942yHAcoehSs1JRI9pMbAqTNIGl0hFEIdLgvS6cgogVlCrWzn7bWMIULvxQ3o',
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                translations: [data.translation],
-                }),
-            }
+            translations: [data.translation],
+          }),
+        }
         );
-
+        
         if (!response.ok) {
-            throw new Error("Translation request failed");
+          throw new Error("Translation request failed");
         }
 
         // Clear the input field after successful submission
