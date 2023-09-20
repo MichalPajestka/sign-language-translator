@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 
-const Navbar = () => {
+const TNavbar = () => {
     return(
         <div>
             <h2>Lost in Translation</h2>
@@ -8,4 +8,4 @@ const Navbar = () => {
         </div>
     )
 }
-export default Navbar
+export default TNavbar
