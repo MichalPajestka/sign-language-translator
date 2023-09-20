@@ -56,6 +56,13 @@ const TranslationInput = ({ updateTranslatedText }) => {
     }
   };
 
+  // Disable enter key on form submission because it was causing problems
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -65,6 +72,7 @@ const TranslationInput = ({ updateTranslatedText }) => {
           maxLength="40"
           value={inputValue}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
         />
         <button type="submit" disabled={isTranslateButtonDisabled}>Translate</button>
         {errorMessage && <p>{errorMessage}</p>}
