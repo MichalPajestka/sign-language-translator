@@ -31,6 +31,7 @@ const TranslationInput = ({ updateTranslatedText }) => {
       updateTranslatedText(translation);
 
       const translationObject = {
+        id: 0, // Temporary placeholder for id
         username: data.username,
         translations: [cleanedText]
       };
