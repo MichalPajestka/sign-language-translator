@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ProfileNavbar from "../components/ProfileNavbar";
-import TranslationHistory from "../components/TranslationHistory";
-import ClearTranslations from "../components/ClearTranslations";
-import LogOut from "../components/LogOut";
+import ProfileNavbar from "../components/Profile/ProfileNavbar";
+import TranslationHistory from "../components/Profile/TranslationHistory";
+import ClearTranslations from "../components/Profile/ClearTranslations";
+import LogOut from "../components/Profile/LogOut";
 // import { deleteTranslations } from "../utils/deleteTranslations";
 
 const Profile = () => {
