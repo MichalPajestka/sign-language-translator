@@ -30,6 +30,12 @@ const TranslationInput = ({ updateTranslatedText }) => {
       const translation = translate(cleanedText);
       updateTranslatedText(translation);
 
+      const translationObject = {
+        id: 5,
+        username: /*data.username,*/ "Michal",
+        translations: [cleanedText]
+      };
+
       const response = await fetch(
         "https://translations-api-production-3e9d.up.railway.app/translations",
         {
@@ -38,9 +44,7 @@ const TranslationInput = ({ updateTranslatedText }) => {
             'X-API-Key': 'xqW942yHAcoehSs1JRI9pMbAqTNIGl0hFEIdLgvS6cgogVlCrWzn7bWMIULvxQ3o',
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            translations: [cleanedText],
-          }),
+          body: JSON.stringify(translationObject),
         }
       );
 
