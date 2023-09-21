@@ -31,8 +31,7 @@ const TranslationInput = ({ updateTranslatedText }) => {
       updateTranslatedText(translation);
 
       const translationObject = {
-        id: 5,
-        username: /*data.username,*/ "Michal",
+        username: data.username,
         translations: [cleanedText]
       };
 
