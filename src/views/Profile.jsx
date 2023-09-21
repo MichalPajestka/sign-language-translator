@@ -1,12 +1,13 @@
-import PNavbar from "../components/Profile/ProfileNavbar";
-import { deleteTranslations } from "../utils/deleteTranslations";
-
-import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import ProfileNavbar from "../components/ProfileNavbar";
+import TranslationHistory from "../components/TranslationHistory";
+import ClearTranslations from "../components/ClearTranslations";
+import LogOut from "../components/LogOut";
+// import { deleteTranslations } from "../utils/deleteTranslations";
 
 const Profile = () => {
-
-    /*const navigate = useNavigate();
+	/*const navigate = useNavigate();
 
     useEffect(() => {
       // Check if the user is logged in
@@ -17,13 +18,29 @@ const Profile = () => {
         navigate("/");
       }
     }, [navigate]); */
-    
-    return (
-        <div>
-            <PNavbar></PNavbar>
-            <h1>Profile</h1>
-            <button onClick={deleteTranslations}>Delete Translations</button>
-        </div>
-    )
-}
+
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+		if (!isLoggedIn || isLoggedIn !== "true") {
+			navigate("/");
+		}
+	}, [navigate]);
+
+	const username = localStorage.getItem("username");
+
+	return (
+		<div>
+			<ProfileNavbar />
+			<h2>Profile Page</h2>
+			<p>Welcome, {username}!</p>
+			<TranslationHistory />
+			<ClearTranslations />
+			<LogOut />
+		</div>
+	);
+};
+
 export default Profile;
