@@ -20,6 +20,7 @@ function LoginForm() {
 
 			if (userData.length > 0) {
 				// User exists, redirect to the Translation Page
+				localStorage.setItem("isLoggedIn", "true");
 				navigate("/translation");
 			} else {
 				// User doesn't exist, create a new user
@@ -37,6 +38,7 @@ function LoginForm() {
 
 				if (createUserResponse.ok) {
 					// User created successfully, redirect to the Translation Page
+					localStorage.setItem("isLoggedIn", "true");
 					navigate("/translation");
 				} else {
 					// Handle user creation error
