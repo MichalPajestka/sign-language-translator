@@ -1,7 +1,7 @@
 const TranslationOutput = ({ translatedText }) => {
   return (
     <div>
-      <p>{translatedText}</p>
+      {translatedText}
     </div>
   );
 };
