@@ -9,11 +9,11 @@ const Translation = () => {
 
     useEffect(() => {
         const isLoggedIn = localStorage.getItem("isLoggedIn");
-
+    
         if(!isLoggedIn || isLoggedIn !== "true") {
             navigate("/")
         }
-    }, [navigate]); 
+    }, [navigate]);
 
     const [translatedText, setTranslatedText] = useState(""); // State to hold translated text
 
