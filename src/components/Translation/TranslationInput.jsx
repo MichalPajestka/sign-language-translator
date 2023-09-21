@@ -56,7 +56,7 @@ const onSubmit = async (data) => {
 
     if (Array.isArray(userData) && userData.length > 0) {
       // Extract the user's ID
-      const userId = userData[0].id;y
+      const userId = userData[0].id;
       const existingTranslations = Array.isArray(userData[0].translations)
         ? userData[0].translations
         : [];
