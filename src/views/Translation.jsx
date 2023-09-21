@@ -5,7 +5,7 @@ import TranslationOutput from "../components/Translation/TranslationOutput";
 import { useEffect, useState } from "react";
 
 const Translation = () => {
-    /*const navigate = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -13,7 +13,7 @@ const Translation = () => {
         if(!isLoggedIn || isLoggedIn !== "true") {
             navigate("/")
         }
-    }, []); */
+    }, [navigate]); 
 
     const [translatedText, setTranslatedText] = useState(""); // State to hold translated text
 
