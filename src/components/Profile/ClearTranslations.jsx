@@ -1,6 +1,6 @@
 const ClearTranslations = () => {
   const username = localStorage.getItem("username");
-  let userId; // Define userId here
+  let userId;    
 
   const fetchTranslations = async () => {
     try {
@@ -20,16 +20,6 @@ const ClearTranslations = () => {
         throw new Error("Failed to fetch user data");
       }
 
-      const userData = await response.json();
-
-      // Check if user data is in the expected format
-      if (Array.isArray(userData) && userData.length > 0) {
-        // Extract the user's ID
-        userId = userData[0].id; // Assign the value to userId
-        // ...
-      } else {
-        console.error("User data is not in the expected format:", userData);
-      }
     } catch (error) {
       console.error("Error clearing translations:", error);
     }

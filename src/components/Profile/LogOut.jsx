@@ -5,6 +5,7 @@ const LogOut = () => {
 	const navigate = useNavigate();
 
 	const handleLogOut = () => {
+		//Remove logged in flag and username from storage
 		localStorage.removeItem("isLoggedIn");
 		localStorage.removeItem("username");
 		navigate("/");

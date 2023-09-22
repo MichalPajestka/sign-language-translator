@@ -4,7 +4,7 @@ import LoginForm from "../components/Startup/LoginForm";
 const Startup = () => {
 	return (
 		<div>
-			<h1>Startup</h1>
+			<h1>Lost in Translation</h1>
 			<LoginForm />
 		</div>
 	);

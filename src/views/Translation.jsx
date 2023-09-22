@@ -9,7 +9,8 @@ const Translation = () => {
 
     useEffect(() => {
         const isLoggedIn = localStorage.getItem("isLoggedIn");
-    
+
+        // Check if the user is not logged in and redirect to the login page    
         if(!isLoggedIn || isLoggedIn !== "true") {
             navigate("/")
         }

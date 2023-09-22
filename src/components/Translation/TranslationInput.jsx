@@ -23,8 +23,6 @@ const TranslationInput = ({ updateTranslatedText }) => {
     }
   };
 
-// ...
-
 const onSubmit = async (data) => {
   try {
     const cleanedText = data.translation;
@@ -91,10 +89,7 @@ const onSubmit = async (data) => {
   }
 };
 
-// ...
 
-
-  
   // Disable enter key on form submission because it was causing problems
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
