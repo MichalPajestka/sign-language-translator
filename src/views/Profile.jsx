@@ -4,41 +4,34 @@ import ProfileNavbar from "../components/Profile/ProfileNavbar";
 import TranslationHistory from "../components/Profile/TranslationHistory";
 import ClearTranslations from "../components/Profile/ClearTranslations";
 import LogOut from "../components/Profile/LogOut";
-// import { deleteTranslations } from "../utils/deleteTranslations";
 
 const Profile = () => {
-	const navigate = useNavigate();
+  const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const username = localStorage.getItem("username");
 
-    useEffect(() => {
-      // Check if the user is logged in
-      const isLoggedIn = localStorage.getItem("isLoggedIn");
-  
-      if (!isLoggedIn || isLoggedIn !== "true") {
-        // If not logged in, redirect to the login page
-        navigate("/");
-      }
-    }, [navigate]);
+  // Check if the user is not logged in and redirect to the login page
+  useEffect(() => {
+    if (!isLoggedIn || isLoggedIn !== "true") {
+      navigate("/");
+    }
+  }, [isLoggedIn, navigate]);
 
-	useEffect(() => {
-		const isLoggedIn = localStorage.getItem("isLoggedIn");
+  if (!isLoggedIn || isLoggedIn !== "true") {
+    // If the user is not logged in, do not render the profile page
+    return null;
+  }
 
-		if (!isLoggedIn || isLoggedIn !== "true") {
-			navigate("/");
-		}
-	}, [navigate]);
-
-	const username = localStorage.getItem("username");
-
-	return (
-		<div>
-			<ProfileNavbar />
-			<h2>Profile Page</h2>
-			<p>Welcome, {username}!</p>
-			<TranslationHistory />
-			<ClearTranslations />
-			<LogOut />
-		</div>
-	);
+  return (
+    <div>
+      <ProfileNavbar />
+      <h2>Profile Page</h2>
+      <p>Welcome, {username}!</p>
+      <TranslationHistory />
+      <ClearTranslations />
+      <LogOut />
+    </div>
+  );
 };
 
 export default Profile;

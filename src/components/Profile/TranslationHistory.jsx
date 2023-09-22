@@ -6,32 +6,36 @@ const TranslationHistory = () => {
 
 	useEffect(() => {
 		const fetchTranslations = async () => {
-			try {
-				const response = await fetch(
-					`https://translations-api-production-3e9d.up.railway.app/translations?username=${username}`,
-					{
-						method: "GET",
-						headers: {
-							"X-API-Key":
-								"xqW942yHAcoehSs1JRI9pMbAqTNIGl0hFEIdLgvS6cgogVlCrWzn7bWMIULvxQ3o",
-							"Content-Type": "application/json",
-						},
-					}
-				);
-
-				if (!response.ok) {
-					throw new Error("Failed to fetch translation history");
-				}
-
-				const data = await response.json();
-				setTranslations(data[0]?.translations || []);
-			} catch (error) {
-				console.error("Error fetching translation history:", error);
+		  try {
+			const response = await fetch(
+			  `https://translations-api-production-3e9d.up.railway.app/translations?username=${username}`,
+			  {
+				method: "GET",
+				headers: {
+				  "X-API-Key":
+					"xqW942yHAcoehSs1JRI9pMbAqTNIGl0hFEIdLgvS6cgogVlCrWzn7bWMIULvxQ3o",
+				  "Content-Type": "application/json",
+				},
+			  }
+			);
+	  
+			if (!response.ok) {
+			  throw new Error("Failed to fetch translation history");
 			}
+	  
+			const data = await response.json();
+	  
+			// Reverse the order of translations before setting the state
+			const lastTenTranslations = data[0]?.translations.reverse() || [];
+			setTranslations(lastTenTranslations);
+		  } catch (error) {
+			console.error("Error fetching translation history:", error);
+		  }
 		};
-
+	  
 		fetchTranslations();
-	}, [username]);
+	  }, [username]);
+	  
 
 	return (
 		<div>
