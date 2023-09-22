@@ -2,7 +2,7 @@
 
 You can visit the page [here](https://sign-language-translator-lemon.vercel.app/)
 ## Background
-This web application was done according to the requirments of the 2nd assignment provided during the Fullstack course at Noroff Accelerate.
+This web application was done according to the requirments of the 2nd assignment provided during the Fullstack course at Noroff Accelerate. This assignment was done by Michal Pajestka and Ozan Kara.
 
 
 ## Description
