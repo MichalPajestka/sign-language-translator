@@ -7,7 +7,7 @@ import LogOut from "../components/Profile/LogOut";
 // import { deleteTranslations } from "../utils/deleteTranslations";
 
 const Profile = () => {
-	/*const navigate = useNavigate();
+	const navigate = useNavigate();
 
     useEffect(() => {
       // Check if the user is logged in
@@ -17,9 +17,7 @@ const Profile = () => {
         // If not logged in, redirect to the login page
         navigate("/");
       }
-    }, [navigate]); */
-
-	const navigate = useNavigate();
+    }, [navigate]);
 
 	useEffect(() => {
 		const isLoggedIn = localStorage.getItem("isLoggedIn");
