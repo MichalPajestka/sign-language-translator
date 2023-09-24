@@ -1,0 +1,33 @@
+/* Input container */
+.input-container {
+	text-align: center;
+	padding: 20px;
+}
+
+/* Input field */
+.input-field {
+	width: 100%;
+	padding: 10px;
+	font-size: 18px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+/* Error message */
+.error-message {
+	color: red;
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+/* Translate button */
+.translate-button {
+	background-color: lightblue;
+	border: none;
+	border-radius: 8px;
+	padding: 10px 20px;
+	font-size: 18px;
+	cursor: pointer;
+	margin-top: 20px;
+}

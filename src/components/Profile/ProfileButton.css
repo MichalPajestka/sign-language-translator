@@ -1,0 +1,16 @@
+/* Button styles */
+.profile-button {
+	padding: 10px 20px;
+	background-color: rgb(255, 174, 0);
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 18px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+
+	/* Add hover effect */
+	&:hover {
+		background-color: rgb(199, 136, 0);
+	}
+}

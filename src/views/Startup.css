@@ -1,0 +1,25 @@
+.startup-container {
+	background-color: rgb(253, 194, 67);
+}
+
+.navbar {
+	background-color: rgb(255, 174, 0);
+	border-bottom: 2px solid rgb(199, 136, 0);
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.logo {
+	margin-left: 20px;
+	font-size: 24px;
+}
+
+.profile-link {
+	margin-right: 20px;
+	font-size: 18px;
+}
+
+.content {
+	padding: 20px;
+}

@@ -1,0 +1,60 @@
+/* Translation.css */
+
+.translation-container {
+	background-color: rgb(253, 194, 67);
+}
+
+.navbar {
+	background-color: rgb(255, 174, 0);
+	border-bottom: 2px solid rgb(199, 136, 0);
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.logo {
+	margin-left: 20px;
+	font-size: 24px;
+}
+
+.profile-link {
+	margin-right: 20px;
+	font-size: 18px;
+}
+
+.content {
+	padding: 20px;
+}
+
+.translate-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.translate-input {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.translate-input input {
+	flex-grow: 1;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.translate-button {
+	background-color: rgb(255, 174, 0);
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.translate-output {
+	margin-top: 20px;
+}
+
+/* Add any additional styles as needed */

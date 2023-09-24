@@ -70,7 +70,10 @@ const ClearTranslations = () => {
 
 	return (
 		<div>
-			<button onClick={handleClearTranslations}>
+			<button
+				className="profile-button"
+				onClick={handleClearTranslations}
+			>
 				Clear Translations
 			</button>
 		</div>

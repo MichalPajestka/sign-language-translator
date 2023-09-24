@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useUser } from "../../Context/UserContext"; // Import UserContext
+import "./LoginForm.css";
 
 function LoginForm() {
 	const {
@@ -69,22 +70,28 @@ function LoginForm() {
 	}
 
 	return (
-		<div>
-			<h2>Login</h2>
-			<form onSubmit={handleSubmit(onSubmit)}>
+		<div className="login-form">
+			<h2 className="form-title">Login</h2>
+			<form onSubmit={handleSubmit(onSubmit)} className="center-form">
 				<div>
 					<label htmlFor="username">Username:</label>
 					<input
 						type="text"
 						id="username"
 						{...register("username", { required: true })}
+						className="username-input"
 					/>
-					{errors.username && <span>This field is required</span>}
+					{errors.username && (
+						<span className="error-message">
+							This field is required
+						</span>
+					)}
 				</div>
-				<button type="submit">Login</button>
+				<button type="submit" className="login-button">
+					Login
+				</button>
 			</form>
 		</div>
 	);
 }
-
 export default LoginForm;

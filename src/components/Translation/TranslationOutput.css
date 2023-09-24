@@ -1,0 +1,10 @@
+/* Output container */
+.output-container {
+	text-align: center;
+	padding: 20px;
+}
+
+/* Translated text */
+.translated-text {
+	font-size: 18px;
+}

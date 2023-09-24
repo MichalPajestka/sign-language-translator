@@ -4,6 +4,7 @@ import TranslationInput from "../components/Translation/TranslationInput";
 import TranslationOutput from "../components/Translation/TranslationOutput";
 import { useEffect, useState } from "react";
 import { useUser } from "../Context/UserContext";
+import "./Translation.css";
 
 const Translation = () => {
 	const navigate = useNavigate();
@@ -25,16 +26,27 @@ const Translation = () => {
 	};
 
 	return (
-		<div>
-			<TNavbar></TNavbar>
-			<TranslationInput
-				updateTranslatedText={updateTranslatedText}
-			></TranslationInput>
-			<TranslationOutput
-				translatedText={translatedText}
-			></TranslationOutput>
+		<div className="translation-container">
+			<div className="navbar">
+				<h2 className="logo">Lost in Translation</h2>
+				{isLoggedIn && (
+					<button
+						className="profile-link"
+						onClick={() => navigate("/profile")}
+					>
+						Profile
+					</button>
+				)}
+			</div>
+			<div className="content">
+				<div className="translate-content">
+					<TranslationInput
+						updateTranslatedText={updateTranslatedText}
+					/>
+					<TranslationOutput translatedText={translatedText} />
+				</div>
+			</div>
 		</div>
 	);
 };
-
 export default Translation;

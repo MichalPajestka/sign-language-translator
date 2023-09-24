@@ -5,6 +5,7 @@ import TranslationHistory from "../components/Profile/TranslationHistory";
 import ClearTranslations from "../components/Profile/ClearTranslations";
 import LogOut from "../components/Profile/LogOut";
 import { useUser } from "../Context/UserContext";
+import "./Profile.css";
 
 const Profile = () => {
 	const navigate = useNavigate();
@@ -24,13 +25,21 @@ const Profile = () => {
 	}
 
 	return (
-		<div>
+		<div className="profile-container">
+			{" "}
+			{/* Apply the "profile-container" class */}
 			<ProfileNavbar />
-			<h2>Profile Page</h2>
-			<p>Welcome, {username}!</p>
-			<TranslationHistory />
-			<ClearTranslations />
-			<LogOut />
+			<div className="profile-content">
+				{" "}
+				{/* Apply the "profile-content" class */}
+				<h2 className="profile-heading">Profile Page</h2>{" "}
+				{/* Apply the "profile-heading" class */}
+				<p className="profile-text">Welcome, {username}!</p>{" "}
+				{/* Apply the "profile-text" class */}
+				<TranslationHistory />
+				<ClearTranslations />
+				<LogOut />
+			</div>
 		</div>
 	);
 };
