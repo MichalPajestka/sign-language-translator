@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useUser } from "../../Context/UserContext";
 
 const TranslationHistory = () => {
-	const [translations, setTranslations] = useState([]);
-	const username = localStorage.getItem("username");
+	const { state: userState, dispatch } = useUser();
+	const { username, translationHistory } = userState;
 
 	useEffect(() => {
 		const fetchTranslations = async () => {
@@ -25,27 +26,34 @@ const TranslationHistory = () => {
 
 				const data = await response.json();
 
-				// Reverse the order of translations before setting the state
-				const lastTenTranslations =
-					data[0]?.translations.reverse() || [];
-				setTranslations(lastTenTranslations);
+				if (Array.isArray(data) && data.length > 0) {
+					const lastTenTranslations =
+						data[0]?.translations.reverse() || [];
+					// Update the translation history in the user context
+					dispatch({
+						type: "UPDATE_TRANSLATION_HISTORY",
+						payload: lastTenTranslations,
+					});
+				}
 			} catch (error) {
 				console.error("Error fetching translation history:", error);
 			}
 		};
 
 		fetchTranslations();
-	}, [username]);
+	}, [username, dispatch]);
 
 	return (
 		<div>
 			<h3>Your Last 10 Translations</h3>
 			<ul>
-				{translations.slice(0, 10).map((translation, index) => (
+				{translationHistory.slice(0, 10).map((translation, index) => (
 					<li key={index}>{translation}</li>
 				))}
 			</ul>
-			{translations.length === 0 && <p>No translations available.</p>}
+			{translationHistory.length === 0 && (
+				<p>No translations available.</p>
+			)}
 		</div>
 	);
 };
