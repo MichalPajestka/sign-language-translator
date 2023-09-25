@@ -128,7 +128,7 @@ const TranslationInput = ({ updateTranslatedText }) => {
 					Translate
 				</button>
 				{errorMessage && (
-					{errorMessage}
+					<p>{errorMessage}</p>
 				)}
 			</form>
 		</div>
