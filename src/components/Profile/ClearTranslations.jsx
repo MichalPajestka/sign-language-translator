@@ -5,16 +5,18 @@ const ClearTranslations = () => {
 	const { state: userState, dispatch } = useUser();
 	const { username } = userState;
 
+	const apiUrl = process.env.REACT_APP_API_URL;
+	const apiKey = process.env.REACT_APP_API_KEY;
+
 	const handleClearTranslations = async () => {
 		try {
 			// Fetch the user's data, including translations
 			const response = await fetch(
-				`https://translations-api-production-3e9d.up.railway.app/translations?username=${username}`,
+				`${apiUrl}?username=${username}`,
 				{
 					method: "GET",
 					headers: {
-						"X-API-Key":
-							"xqW942yHAcoehSs1JRI9pMbAqTNIGl0hFEIdLgvS6cgogVlCrWzn7bWMIULvxQ3o",
+						"X-API-Key": apiKey,
 						"Content-Type": "application/json",
 					},
 				}
@@ -33,12 +35,11 @@ const ClearTranslations = () => {
 
 				// Clear the user's translations by sending a PATCH request with an empty array of translations
 				const clearResponse = await fetch(
-					`https://translations-api-production-3e9d.up.railway.app/translations/${userId}`,
+					`${apiUrl}/${userId}`,
 					{
 						method: "PATCH",
 						headers: {
-							"X-API-Key":
-								"xqW942yHAcoehSs1JRI9pMbAqTNIGl0hFEIdLgvS6cgogVlCrWzn7bWMIULvxQ3o",
+							"X-API-Key": apiKey,
 							"Content-Type": "application/json",
 						},
 						body: JSON.stringify({ translations: [] }),

@@ -4,7 +4,7 @@ import "./TranslationOutput.css";
 const TranslationOutput = ({ translatedText }) => {
 	return (
 		<div className="translation-output">
-			<p className="translated-text">{translatedText}</p>
+			{translatedText}
 		</div>
 	);
 };

@@ -27,6 +27,9 @@ const TranslationInput = ({ updateTranslatedText }) => {
 		}
 	};
 
+	const apiUrl = process.env.REACT_APP_API_URL;
+	const apiKey = process.env.REACT_APP_API_KEY;
+
 	const onSubmit = async (data) => {
 		try {
 			const cleanedText = data.translation;
@@ -39,12 +42,11 @@ const TranslationInput = ({ updateTranslatedText }) => {
 
 			// Fetch the user's existing translations from the API
 			const response = await fetch(
-				`https://translations-api-production-3e9d.up.railway.app/translations?username=${username}`,
+				`${apiUrl}?username=${username}`,
 				{
 					method: "GET",
 					headers: {
-						"X-API-Key":
-							"xqW942yHAcoehSs1JRI9pMbAqTNIGl0hFEIdLgvS6cgogVlCrWzn7bWMIULvxQ3o",
+						"X-API-Key": apiKey,
 						"Content-Type": "application/json",
 					},
 				}
@@ -70,12 +72,11 @@ const TranslationInput = ({ updateTranslatedText }) => {
 
 				// Send a PATCH request to the API to update the user's data
 				const updatedResponse = await fetch(
-					`https://translations-api-production-3e9d.up.railway.app/translations/${userId}`,
+					`${apiUrl}/${userId}`,
 					{
 						method: "PATCH",
 						headers: {
-							"X-API-Key":
-								"xqW942yHAcoehSs1JRI9pMbAqTNIGl0hFEIdLgvS6cgogVlCrWzn7bWMIULvxQ3o",
+							"X-API-Key": apiKey,
 							"Content-Type": "application/json",
 						},
 						body: JSON.stringify(userData[0]),
@@ -127,7 +128,7 @@ const TranslationInput = ({ updateTranslatedText }) => {
 					Translate
 				</button>
 				{errorMessage && (
-					<p className="error-message">{errorMessage}</p>
+					{errorMessage}
 				)}
 			</form>
 		</div>

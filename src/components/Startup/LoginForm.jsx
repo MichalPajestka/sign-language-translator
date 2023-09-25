@@ -14,11 +14,14 @@ function LoginForm() {
 	const { state: userState, dispatch } = useUser(); // Access user state and dispatch from context
 	const { isLoggedIn } = userState;
 
+	const apiUrl = process.env.REACT_APP_API_URL;
+	const apiKey = process.env.REACT_APP_API_KEY;
+
 	const onSubmit = async (data) => {
 		try {
 			// Check if the user exists
 			const response = await fetch(
-				`https://translations-api-production-3e9d.up.railway.app/translations?username=${data.username}`
+				`${apiUrl}?username=${data.username}`
 			);
 			const userData = await response.json();
 
@@ -33,13 +36,12 @@ function LoginForm() {
 			} else {
 				// User doesn't exist, create a new user
 				const createUserResponse = await fetch(
-					"https://translations-api-production-3e9d.up.railway.app/translations",
+					apiUrl,
 					{
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
-							"X-API-Key":
-								"xqW942yHAcoehSs1JRI9pMbAqTNIGl0hFEIdLgvS6cgogVlCrWzn7bWMIULvxQ3o",
+							"X-API-Key": apiKey,
 						},
 						body: JSON.stringify({ username: data.username }),
 					}
