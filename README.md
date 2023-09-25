@@ -9,6 +9,8 @@ This web application was done according to the requirments of the 2nd assignment
 This application allows users to translate English words and short sentences to American Sign Language. Users can log in, translate text, view their translation history, and log out. The application uses React, React Router for navigation, and an API to store user data and translations.
 
 ### React Component Tree
+<strong>NOTE:</strong> The component tree was drawn before any code was written
+
 ![component tree](/componenttree.png)
 
 
